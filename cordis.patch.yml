@@ -1,0 +1,4 @@
+# dsh-upgrade bundle patch
+- insert:
+    - id: dsh-upgrade
+      name: 'dsh-upgrade'
