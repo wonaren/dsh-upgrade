@@ -2,6 +2,9 @@
 
 > 专为 **DeepSeek Harness (DSH)** 打造的一站式版本检测、多通道平滑升级与服务守护插件。
 
+[![npm version](https://img.shields.io/npm/v/dsh-upgrade.svg?color=cb3837)](https://www.npmjs.com/package/dsh-upgrade)
+[![npm downloads](https://img.shields.io/npm/dm/dsh-upgrade.svg)](https://www.npmjs.com/package/dsh-upgrade)
+[![npmmirror](https://img.shields.io/badge/npmmirror-synced-orange.svg)](https://npmmirror.com/package/dsh-upgrade)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![DSH](https://img.shields.io/badge/DSH-%3E%3D0.1.0-emerald.svg)](https://github.com/deepseek-ai/deepseek-harness)
 [![Platform](https://img.shields.io/badge/Platform-Web%20GUI-blue.svg)](#)
@@ -10,7 +13,7 @@
 
 ## ✨ 核心特性
 
-- 🎯 **精准多源版本比对**：自动对比本地当前安装的 `@deepseek-ai/dsh` 与远端最新版本（优先使用 npmmirror 镜像源加速，自动降级至官方 npmjs 源）。
+- 🎯 **精准多源版本比对**：自动对比本地当前安装的 `@deepseek-ai/dsh` 与远端最新版本（优先使用国内 npmmirror 镜像源加速，自动降级至官方 npmjs 源）。
 - 🏷️ **多通道智能分流**：
   - **稳定版通道 (Latest)**：推荐日常使用，有稳定新版本时提示蓝色徽章 `[有新版本]`。
   - **尝鲜版通道 (Alpha)**：率先体验新特性（如 `0.2.1-alpha.x`），有新预览版本时提示绿色徽章 `[有尝鲜版更新]`。
@@ -34,34 +37,37 @@
 
 ---
 
-## 📦 安装使用
+## 📦 安装与使用
 
-### 方式一：在 DSH Web 界面中添加（推荐）
+本插件已公开发布至 **npm 全球注册表** 与 **国内 npmmirror 镜像源**，支持通过 DSH Web 界面或命令行极简安装。
 
-1. 打开 DeepSeek Harness 网页端。
-2. 点击左侧边栏 **设置 ➔ 插件管理 ➔ 添加插件**。
-3. 在包名输入框中填入：
+### 方式一：在 DSH Web 界面中添加（推荐，最简便）
+
+1. 打开 DeepSeek Harness 网页端（如 `http://127.0.0.1:3080`）。
+2. 点击左侧边栏底部的 **设置 ➔ 插件管理 ➔ 添加插件**。
+3. 在包名输入框中直接填入 npm 包名：
    ```text
-   github:wonaren/dsh-upgrade
+   dsh-upgrade
    ```
-   *(如果已发布至 npm，可直接输入 `dsh-upgrade`)*
-4. 点击 **安装**，完成后重启服务即可生效。
+4. 点击 **安装**，安装成功后重启后台服务即可生效！
 
 ---
 
 ### 方式二：通过 CLI 命令行安装
 
-在终端执行以下命令：
+在终端执行官方 DSH 插件添加命令：
 
 ```bash
-# 从 GitHub 仓库直接安装
-dsh plugin --profile web add github:wonaren/dsh-upgrade
-
-# 或者从 npm 安装（发布后可用）
+# 从 npm 官方或国内镜像源直接安装（推荐）
 dsh plugin --profile web add dsh-upgrade
+
+# 或者直接从 GitHub 仓库源安装
+dsh plugin --profile web add github:wonaren/dsh-upgrade
 ```
 
-安装完成后，执行服务重启：
+#### 生效与重启服务
+安装完成后，执行 launchctl 命令重启后台服务（或直接在插件内点击重启）：
+
 ```bash
 launchctl kickstart -k gui/$(id -u)/com.deepseek.dsh.web
 ```
@@ -72,7 +78,7 @@ launchctl kickstart -k gui/$(id -u)/com.deepseek.dsh.web
 
 ```text
 dsh-upgrade/
-├── package.json        # 插件元数据与 DSH bundle 声明
+├── package.json        # 插件元数据与 DSH bundle 声明 (已发布至 npm)
 ├── cordis.patch.yml    # Cordis 补丁层配置
 ├── LICENSE             # MIT 开源协议
 ├── README.md           # 插件说明文档
@@ -81,6 +87,14 @@ dsh-upgrade/
 │   └── client.js       # Client 端 UI：React 弹窗、侧边栏入口与心跳重连
 └── screenshots/        # 实机效果预览截图
 ```
+
+---
+
+## 🔗 相关链接
+
+- **npm Package**: [https://www.npmjs.com/package/dsh-upgrade](https://www.npmjs.com/package/dsh-upgrade)
+- **npmmirror 镜像**: [https://npmmirror.com/package/dsh-upgrade](https://npmmirror.com/package/dsh-upgrade)
+- **GitHub 源码仓库**: [https://github.com/wonaren/dsh-upgrade](https://github.com/wonaren/dsh-upgrade)
 
 ---
 
