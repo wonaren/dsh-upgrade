@@ -17,7 +17,7 @@
   "homepage": "https://github.com/wonaren/dsh-upgrade#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wonaren/dsh-upgrade.git"
+    "url": "git+https://github.com/wonaren/dsh-upgrade.git"
   },
   "bugs": {
     "url": "https://github.com/wonaren/dsh-upgrade/issues"
