@@ -1,6 +1,6 @@
 {
   "name": "dsh-upgrade",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "DeepSeek Harness (DSH) 版本检测、多通道一键平滑升级与服务守护插件",
   "keywords": [
     "dsh",
